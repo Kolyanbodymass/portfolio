@@ -16,3 +16,14 @@ block.addEventListener('click', (e) => {
         menu.classList.remove('active');
     } 
 });
+
+
+// orange lines
+const counters = document.querySelectorAll('.interest__number'),
+      lines = document.querySelectorAll('.interest__band-orange');
+
+counters.forEach((item, i) => {
+    lines[i].style.width = item.innerHTML;
+});
+
+
