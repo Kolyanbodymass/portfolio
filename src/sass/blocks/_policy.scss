@@ -1,0 +1,25 @@
+.policy {
+    padding: 30px 0;
+    ol {
+        list-style: none;
+        counter-reset: list1;
+        margin-bottom: 50px;
+        li {
+            &:before {
+                counter-increment: list1;
+                content: counter(list1) ". ";
+            }
+        }
+        
+        ol { 
+            counter-reset: list2; 
+            li {
+                padding-left: 40px;
+                &:before {
+                    counter-increment: list2;
+                    content: counter(list1) "." counter(list2) ". ";
+                }
+            }
+        }
+    }
+}
