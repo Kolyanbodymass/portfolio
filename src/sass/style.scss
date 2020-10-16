@@ -21,6 +21,10 @@
     background-color: $main-color;
     margin: 25px auto 0 auto;
 }
+.status {
+    display: block;
+    color: red;
+  }
 
 @import 'blocks/promo';
 @import 'blocks/title';
@@ -35,3 +39,4 @@
 @import 'blocks/contacts';
 @import 'blocks/policy';
 @import 'blocks/media';
+@import 'blocks/modals';

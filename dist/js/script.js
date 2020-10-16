@@ -27,3 +27,64 @@ counters.forEach((item, i) => {
 });
 
 
+// form
+const form = document.querySelector('form'),
+      inputs = document.querySelectorAll('input'),
+      modalStatus = document.querySelector('.modalStatus'),
+      modalStatusText = document.querySelector('.modalStatus__text'),
+      modalStatusClose = document.querySelector('.modalStatus__close');
+
+const message = {
+    loading: 'Загрузка...',
+    success: 'Спасибо! Скоро я с вами свяжусь.',
+    failure: 'Что-то пошло не так...'
+};
+
+const postData = async (url, data) => {
+    modalStatusText.textContent = message.loading;
+    
+    let res = await fetch(url, {
+        method: "POST",
+        body: data
+    });
+
+    return await res.text();
+};
+
+const clearInputs = () => {
+    inputs.forEach(item => {
+        item.value = '';
+    });
+};
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    modalStatus.classList.add('active');
+    modalStatusClose.addEventListener('click', () => {
+        modalStatus.classList.remove('active');
+    });
+    modalStatus.addEventListener('click', (e) => {
+        if (e.target == modalStatus) {
+            modalStatus.classList.remove('active');
+        } 
+    });
+
+    const formData = new FormData(form);
+
+    postData('mailer/smart.php', formData)
+        .then(res => {
+            console.log(res);
+            modalStatusText.textContent = message.success;
+        })
+        .catch(() => modalStatusText.textContent = message.failure)
+        .finally(() => {
+            clearInputs();
+            setTimeout(() => {
+                modalStatusText.textContent = '';
+                modalStatus.classList.remove('active');
+            }, 5000);
+        });
+});
+
+
