@@ -75,7 +75,7 @@ form.addEventListener('submit', (e) => {
 
     const formData = new FormData(form);
 
-    postData('mailer/smart.php', formData)
+    postData('telegram-lesson/telegram.php', formData)
         .then(res => {
             console.log(res);
             modalStatusText.textContent = message.success;
