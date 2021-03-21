@@ -23,13 +23,4 @@
             width: 150px;
         }
     }
-    &__link {
-        svg {
-            
-            &:hover {
-                transform: rotate(90deg);
-                transition-duration: .5s;
-            }
-        }
-    }
 }

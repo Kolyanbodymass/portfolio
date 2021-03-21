@@ -1,7 +1,7 @@
 .portfolio {
     padding-top: 120px;
-    &__wrapper {
-        margin-top: 60px;
+    &__web-sites {
+        margin-top: 15px;
         display: grid;
         grid-template: repeat(2, 280px) / repeat(4, 280px);
         grid-auto-rows: 280px;
@@ -24,6 +24,20 @@
         }
         &:hover {
             filter: grayscale(100%);
+        }
+    }
+    &__subtitle {
+        margin-top: 40px;
+    }
+    &__web-sites-cms {
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: repeat(4, 280px);
+        grid-auto-rows: 280px;
+        gap: 5px;
+        .horizontal {
+            grid-row: 1 / 2;
+            grid-column: 3 / 5;
         }
     }
 }
